@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{headerprog}
+
+\RequirePackage[T1]{fontenc}
+
+\RequirePackage[utf8]{inputenc}
+
+\RequirePackage{amsmath,amsfonts}
+
+\RequirePackage{xcolor}
+\definecolor{Mahogany}{rgb}{0.75, 0.25, 0.0}
+
+\RequirePackage{graphicx}
+
+\RequirePackage{geometry}
+\geometry{margin=2.7cm, a4paper}
+
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=cyan}
+
+\RequirePackage{listings}
+
+\newcounter{exercise}
+\setcounter{exercise}{0}
+\newcounter{question}
+
+\newcommand{\lineheader}[1]{
+  \begin{center}
+    \rule{\textwidth}{#1}
+  \end{center}
+}
+
+\newcommand{\exerciseheader}[1]{
+  \addtocounter{exercise}{1}
+  \noindent
+  \lineheader{1pt}
+  \textbf{Exercice - \arabic{exercise}}
+  \hspace{0,3cm}
+  \textit{#1}
+  \vspace{-0,2cm}
+  \lineheader{1pt}
+  \setcounter{question}{1}
+}
+
+\newcommand{\note}[1]{
+        \noindent
+        \lineheader{0,1pt}
+        \textbf{#1}
+        \vspace{-0,2cm}
+        \lineheader{0,1pt}
+        \setcounter{question}{1}
+}
+
+\newcommand{\question}{
+  \noindent
+  \textbf{Question \arabic{question} : }\addtocounter{question}{1}}
+
+
+\newcommand{\shell}[1]{
+  \vspace{0.1cm}
+  \textcolor{Mahogany}{{$\boldsymbol{\$}$}~\texttt{#1}}
+  \vspace{0.1cm}
+}
+
+\newcommand{\toolstyle}[1]{\textsc{#1}}
+\newcommand{\filestyle}[1]{\texttt{#1}}
+
+\newcommand{\file}[1]{\filestyle{#1}}
+\newcommand{\tool}[1]{\toolstyle{#1}}
+
+\newcommand{\emacs}{\tool{emacs}}
+\newcommand{\bash}{\tool{bash}}
+\newcommand{\ocaml}{\tool{ocaml}}
+
+\newcommand{\keywords}[1]{
+  \begin{center}
+    \textit{#1}
+  \end{center}
+}
+\endinput

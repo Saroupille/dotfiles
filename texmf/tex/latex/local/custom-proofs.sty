@@ -1,0 +1,20 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custom-proofs}[2016/12/12 General custom proofs macros]
+
+\RequirePackage{bussproofs}
+\RequirePackage{mathpartir}
+
+\newcommand{\pfsRuleName}[1]{\RightLabel{#1}}
+
+\newcommand{\pfsAxiom}[1]{\AxiomC{#1}}
+\newcommand{\pfsUnary}[3]{#1\pfsRuleName{#3}\UnaryInfC{#2}}
+\newcommand{\pfsBinary}[4]{#1#2\pfsRuleName{#4}\BinaryInfC{#3}}
+
+\newcommand{\pfsEmpty}{\AxiomC{}}
+\newcommand{\pfsDisplay}{\DisplayProof}
+
+\newcommand{\pfsAxiomD}[1]{\pfsAxiom{#1}\pfsDisplay}
+\newcommand{\pfsUnaryD}[3]{\pfsUnary{#1}{#2}{#3}\pfsDisplay}
+\newcommand{\pfsBinaryD}[4]{\pfsBinary{#1}{#2}{#3}{#4}\pfsDisplay}
+
+\endinput
